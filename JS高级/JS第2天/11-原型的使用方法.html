@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        //原型的使用方法
+        //1.利用对象的动态特性给原型对象添加成员  这是对原型对象进行增删改查，不是替换原型对象
+        //2.直接替换原型对象          这是替换
+        //
+        //添加原型对象属性少，用第一种；添加原型对象属性多，用第二种
+
+        //如果使用第二种方式使用原型，那么会出现如下问题：
+        //在替换原型之前创建的对象的原型 和 在替换原型对象之后的创建的对象的原型 不是同一个！
+        //不是覆盖原原型对象，而是内存中重新开辟一个空间作为新原型对象，同时把新对象的地址覆盖到构造函数中原型地址的原先记录
+
+        Person.prototype.sayHello = function () {
+            console.log("Nice to meet you all");
+        }//利用原型对象的动态特性给原型对象添加成员
+
+        //  Person.prototype = {
+        //     sayHello: "console.log('Nice to meet you all')"
+        // }//直接替换了原型对象，创建了新原型对象，并且在新原型对象上增加原型对象属性和方法
+
+
+
+
+        var p = new Person("刘能", 18, "male");
+        console.log(p.sayHello);
+
+        //直接替换了原型对象，创建了新原型对象，并且在新原型对象上增加原型对象属性和方法
+        Person.prototype = {
+            msg : "你猜我在不在"
+        };
+
+        var p1 = new Person("xzy",18,"male");
+
+        console.log(p1.msg);
+//      console.log(p.sayHello); //能
+        console.log(p1.sayHello);   //不能
+
+  
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

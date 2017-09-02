@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        //条件式函数声明是否会被提升，取决浏览器
+        //条件式函数声明不推荐去写
+        //
+        //
+
+
+        foo(); //这里会报错，因为未被提升
+
+        if(true){
+            function foo(){
+                console.log("123");
+            }
+        }
+////////////////////////区别于条件式变量///////////////////////////
+///条件式变量会提升/////
+
+//  if("a" in window){
+//            var a = 10;
+//        }
+//        alert(a); //10  提升了
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

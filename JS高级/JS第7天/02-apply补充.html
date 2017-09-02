@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+//如何把伪数组转成字符串
+        var obj = {
+            0:"abc",
+            1:"def",
+            2:"hig",
+            length:3
+        }
+
+    //上面就是一个伪数据，拥有数组的读取特性，如obj[0].arguments也是伪数组。
+    //伪数组不具有join等方法
+    
+    //错误的代码
+       // var arr = [].concat(1,2,3,4,5);
+       // console.log(arr);
+
+    //正确的代码
+    //var arr = Array.prototype.concat.apply([],obj);
+        var arr = [].concat.apply([],obj);//不应该是参数列表么？？？obj可不是啊
+        //[].concat(obj[0],obj[1],obj[2])
+        console.log(arr);
+
+        function test() {
+//            console.log(this.valueOf());
+//            console.log(+this);
+            console.log(this);
+        }
+        test.apply(1);//Number
+        test.apply("abc");//String
+        test.apply(true);//Boolean
+        test.apply(undefined);//window
+
+        //当时用call和apply传入的第一个参数为值类型的时候
+        //会将值类型转换成对应的对象（引用类型） 然后赋值给this
+
+        //当传入的第一个参数为 null或者Undefined的时候，
+        //会把this赋值为  window
+
+        //借用构造函数 实现继承
+        function Person(){
+            this.name = "张莎";
+            this.age = 18;
+        }
+
+        function Student(){
+            
+            Person.apply(this);
+        }
+
+        var stu = new Student();
+        console.log(stu);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

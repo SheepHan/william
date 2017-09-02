@@ -1,0 +1,31 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+    window.onload=function(){
+        var tp=document.getElementById("tp");
+        var str=tp.innerHTML;
+        var max=new Function("arr",str);
+        console.log(max([1,4,65,23]));
+    }
+    </script>
+
+<!-- 使用模板的方式，将代码写在模板标签内，获取该标签的内容 -->
+    <script type="text/template" id="tp">
+        var Max=arr[0];
+
+        for(var i=1;i<arr.length;i++){
+            if(arr[i]>Max){
+                Max=arr[i];
+            }
+        }
+        return Max;
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

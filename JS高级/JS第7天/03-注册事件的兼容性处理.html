@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border:10px dashed lightgreen;
+        }
+    </style>
+    <script>
+//JQ 中注册事件方式：bind()  delegate()  on()
+
+        //JS中注册事件的方式：3种
+        //1.  ele.on事件类型 = function(){}   //ele只能绑定一个，绑定多个后面会覆盖前面的
+        //2.  addEventListener(事件类型,事件处理函数,useCapture)  //高版本浏览器兼容性问题  
+        //第三个参数默认是false，冒泡阶段执行
+        
+            //通用的
+//            div.onclick = huidiao;   //存在问题，事件源只能绑定一个，绑定多个后面会覆盖前面的
+
+            //ie9以上才支持
+//            div.addEventListener("click",huidiao)
+
+            //ie9（不包括9）以下支持的
+//            div.attachEvent("onclick",function(){
+//                huidiao.call(div, window.event);
+
+        //事件有三个阶段：捕获阶段(从外向内)，目标阶段(找到点击的事件)，冒泡阶段(由内向外 )
+        //3.  attachEvent(事件类型，事件处理函数)  //只有IE8.0及其以下版本支持
+
+
+        //1.在注册事件的时候，判断浏览器的注册事件的方式，然后直接使用该方式进行注册事件
+            //复用性太差
+        //2.将注册事件的代码封装到一个函数中
+            //每次调用该函数，都会进行浏览器能力检测
+        //3.在函数中返回函数，让外部函数只执行一次，判断也就只会执行一次
+        //使用函数内创建的函数返回给外界，就可以重复使用该函数，进行事件的注册
+
+
+///////////////******事件注册基本兼容性解决方案****////////////////////////////////////////
+        //封装成函数，问题是每次都会判断  handler代表处理函数
+       function registeEvent(target, type, handler){
+           if(target.addEventListener){// Chrome、FireFox、Opera、Safari、IE9.0及其以上版本
+               target.addEventListener(type,handler)
+           }else if(target.attachEvent){// IE8.0及其以下版本
+               target.attachEvent("on"+type,handler)
+           }else{// 早期浏览器
+               target["on"+type] = handler;
+           }
+       }
+
+        window.onload=function(){
+            var div=document.getElementById("div1");
+            registeEvent(div,"click",function(){
+                alert("哈哈，测试");
+            })
+        }
+////////////////////////////////////////////////////////////////////////////////////
+        //在函数中返还函数，让外部函数只执行一次，判断也就只会执行一次
+        //使用函数内创建的函数返回给外界，就可以重复使用该函数，进行事件的注册
+        ////使用更好的方式，避免了多次的判断
+////////////////////////////////////////////////////////////////////////////////////
+ function createEventRegister(){
+           if(window.addEventListener){// Chrome、FireFox、Opera、Safari、IE9.0及其以上版本
+               return function(target,type,handler){
+                target.addEventListener(type,handler)
+               }
+           }else if(window.attachEvent){// IE8.0及其以下版本
+                return function(target,type,handler){
+               target.attachEvent("on"+type,handler)
+               }
+           }else{// 早期浏览器
+            return function(target,type,handler){
+               target["on"+type] = handler;
+           }
+       }
+   }
+          var registeEvent = createEventRegister();
+
+
+        window.onload =function () {
+            var div = document.getElementById("div1");
+            registeEvent(div,"click",function(){               
+                alert("太阳天空照，花儿对我笑，小鸟说：完了")
+            })
+        }
+///////////////////////////////////////////////////////////////////////////////////
+        
+        //这里存在问题就是:我们使用统一的方式，进行事件注册
+
+      
+
+        //1、注册的事件的处理函数中的，this指向不一致
+        //使用addEventListener和onclick的方式注册的点击事件的回调函数中的this 指向target
+        //但是使用attachEvent的方式注册点击事件的回调函数中的this 指向window
+
+        //2、3种注册事件的方式中，回调函数内获取事件对象的方式也是不一致的
+        //要让他们统一，
+        //在第二种的事件注册方式（attachEvent）中，手动给handler传递window.event
+
+        function createEventRegister(){
+            if(window.addEventListener){
+                return function(target, type, handler){
+//                    this ---> window//函数调用模式,this指代windows
+                    target.addEventListener(type,handler)
+                }
+            }else if(window.attachEvent){
+                return function(target, type, handler) {
+                    target.attachEvent("on" + type, function(){
+                        handler.call(target, window.event);//attachEvent方式中，，函数调用时候，this需要指向window，同时传入的是e，而且早期版本需要window.event.所以改成target，window.event
+                    })
+                }
+            }else{
+                return function(target, type, handler) {
+                    target["on" + type] = handler;
+                }
+            }
+        }
+
+        var registeEvent = createEventRegister();
+
+
+        window.onload =function () {
+            var div = document.getElementById("div1");
+            registeEvent(div,"click",function(e){
+                console.log(e);
+                console.log(this);//div
+                //this---->该事件的触发对象  方法调用，this指向对象
+                alert("太阳天空照，花儿对我笑，小鸟说：完了")
+            })
+        }
+
+
+//        div.addEventListener("click",function(e){
+//            this--->对象
+//            e.screenX;
+//        })
+//
+//        div.attachEvent("onclick".function(){
+////            this--->window
+//            window.event.screenX
+//        })
+
+    </script>
+</head>
+<body>
+<div id="div1">我是一个div，哈哈哈哈<br>
+    点我有惊喜哦~~~
+</div>
+</body>
+</html>

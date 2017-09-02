@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //坏老师--->老师---->人---->动物
+
+        function Animal(){
+            this.gender = "male";
+        }
+
+        Human.prototype = new Animal();
+        Human.prototype.constructor = Human;
+
+        function Human(){
+            this.actionWay = "走路";
+        }
+
+        Teacher.prototype = new Human();
+        Teacher.prototype.constructor = Teacher;
+        function Teacher(){
+            this.skill = "教书";
+        }
+
+        BadTeacher.prototype = new Teacher();//对象---构造函数--原型对象  所谓对象就要new
+        BadTeacher.prototype.constructor = BadTeacher;//通过构造函数访问原型
+
+        function BadTeacher(){
+            this.name = "吕超";
+        }
+
+        var t = new BadTeacher();
+        console.log(t);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

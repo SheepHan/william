@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09Title</title>
+    <script>
+        function songManager(){
+            this.songList=null;
+        }
+
+        songManager.prototype={
+            init:function(songList){
+                this.songList=songList;
+            },
+
+            addSong:function(song){
+                this.songList.push(song);
+            },
+
+            removeSong:function(songName){
+                var song=this.selectSong(songName);
+                if(song==null){
+                    throw "删除的歌曲名不存在";
+                }
+                var index=this.songList.indexOf(song);
+                this.songList.splice(index,1);
+            },
+
+            updateSong:function(songName,newName){
+                var song=this.selectSong(songName);
+                if(song==null){
+                    throw "更新的歌曲不存在";
+                }
+                song.songName=newName;
+            },
+
+            selectS:function(songName){
+                var song=this.selectSong(songName);
+                if(song==null){
+                    throw "查找的歌曲不存在";
+                }
+                console.log("查找成功");
+            },
+
+            selectSong:function(songName){
+                for(var i=0;i<this.songList.length;i++){
+                    var song=this.songList[i];
+                    if(song.songName==songName){
+                        return song;
+                    }
+                }
+                return null;
+            }
+        };
+
+        var p=new songManager();
+        p.init([
+            {songName:"李白",
+            singer:"李荣浩"}
+            ]);
+
+        p.addSong({
+               songName:"李哈哈",
+               singer:"李荣浩"
+           });
+
+        console.log(p.songList);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
