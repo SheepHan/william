@@ -12,25 +12,25 @@
         }
     </style>
     <script>
-//JQ 中注册事件方式：bind()  delegate()  on()
+//JQ 中注册事件方式：bind()  delegate()  on()  live()
 
-        //JS中注册事件的方式：3种
+        //JS中注册事件的方式：3种    on事件类型  addEventListener  attachEvent
         //1.  ele.on事件类型 = function(){}   //ele只能绑定一个，绑定多个后面会覆盖前面的
         //2.  addEventListener(事件类型,事件处理函数,useCapture)  //高版本浏览器兼容性问题  
         //第三个参数默认是false，冒泡阶段执行
         
-            //通用的
-//            div.onclick = huidiao;   //存在问题，事件源只能绑定一个，绑定多个后面会覆盖前面的
+            通用的
+           ①div.on事件类型 = huidiao; //存在问题，事件源只能绑定一个，绑定多个后面会覆盖前面的
 
-            //ie9以上才支持
-//            div.addEventListener("click",huidiao)
+            ie9及其以上才支持
+           ②div.addEventListener("click",huidiao)
 
-            //ie9（不包括9）以下支持的
-//            div.attachEvent("onclick",function(){
-//                huidiao.call(div, window.event);
+            只有IE8.0及其以下版本支持
+           ③div.attachEvent("on事件类型",function(){
+               huidiao.call(div, window.event);
 
         //事件有三个阶段：捕获阶段(从外向内)，目标阶段(找到点击的事件)，冒泡阶段(由内向外 )
-        //3.  attachEvent(事件类型，事件处理函数)  //只有IE8.0及其以下版本支持
+        //3.  attachEvent(on事件类型，事件处理函数)  //只有IE8.0及其以下版本支持
 
 
         //1.在注册事件的时候，判断浏览器的注册事件的方式，然后直接使用该方式进行注册事件
@@ -49,7 +49,7 @@
            }else if(target.attachEvent){// IE8.0及其以下版本
                target.attachEvent("on"+type,handler)
            }else{// 早期浏览器
-               target["on"+type] = handler;
+               target["on"+type] = handler;//也可以写成target.ontype=handler;
            }
        }
 

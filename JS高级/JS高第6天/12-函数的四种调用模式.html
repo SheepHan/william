@@ -21,7 +21,7 @@
         test();
 
 
-//////////////////方法模式/////////////////////
+// //////////////////方法模式////////////////////////
         var obj1 = {
             test:function(){
                 console.log(this);
@@ -33,9 +33,18 @@
 ////////////////////构造函数模式///////////////////////////////
         function Person(){
             console.log(this);
+            this.test=function(){
+                console.log(this);
+            };
         }
         var obj =new Person();
+        obj.test();
 
+
+函数里的this可以分两种情况，来记忆：
+①（针对构造函数）如果是使用new方式创建对象，（构造函数里的）this指向新建的那个对象
+②如果只是普通的调用，谁调用这个函数，函数的this指向谁
+③如果是call apply模式，this指向看具体指定了。如果没有指定，就是指向window
     </script>
 </head>
 <body>

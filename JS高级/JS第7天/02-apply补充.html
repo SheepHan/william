@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-//如何把伪数组转成字符串
+//如何把伪数组转成字符串？？
+    // 解决问题主要是如何把伪数组转成数组：
+    // ①通过var arr=[].slice.apply(obj);将伪数组转成新数组
+    // 或者②通过var arr = [].concat.apply([],obj);将伪数组转成新数组
         var obj = {
             0:"abc",
             1:"def",
@@ -12,17 +15,18 @@
             length:3
         }
 
-    //上面就是一个伪数据，拥有数组的读取特性，如obj[0].arguments也是伪数组。
+    //上面就是一个伪数据，拥有数组的读取特性，如obj[0]
+    //arguments也是伪数组。
     //伪数组不具有join等方法
     
-    //错误的代码
+    //错误的代码（并不是针对伪数组，而是针对正常的数组，所以是错误的代码）
        // var arr = [].concat(1,2,3,4,5);
        // console.log(arr);
 
     //正确的代码
     //var arr = Array.prototype.concat.apply([],obj);
-        var arr = [].concat.apply([],obj);//不应该是参数列表么？？？obj可不是啊
-        //[].concat(obj[0],obj[1],obj[2])
+        var arr = [].concat.apply([],obj);//不应该是参数列表么？？？obj可不是啊 obj是列表;
+        //就是这个意思：[].concat(obj[0],obj[1],obj[2])
         console.log(arr);
 
         function test() {

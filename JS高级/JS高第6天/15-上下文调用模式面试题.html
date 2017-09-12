@@ -26,17 +26,17 @@
         //call,apply第一个参数为null或者undefined时候，指向window
     
     /////////////////////////////////////////////////
-        var name = "莱昂纳多·自强·郭";
-        function sayHello() {
-            console.log(this.name );
-        }
-        sayHello(); //莱昂纳多·自强·郭
-            ///////////////////
-        var obj = {
-            name:"尼古拉斯·电饭·锅"
-        }
-        sayHello.apply(obj); //尼古拉斯·电饭·锅 
-        sayHello.call(obj);//尼古拉斯·电饭·锅 
+        // var name = "莱昂纳多·自强·郭";
+        // function sayHello() {
+        //     console.log(this.name );
+        // }
+        // sayHello(); //莱昂纳多·自强·郭
+        //     ///////////////////
+        // var obj = {
+        //     name:"尼古拉斯·电饭·锅"
+        // }
+        // sayHello.apply(obj); //尼古拉斯·电饭·锅 
+        // sayHello.call(obj);//尼古拉斯·电饭·锅 
     //////////////////////////////////////////////////
 
         var name = "莱昂纳多·自强·郭";
@@ -51,8 +51,8 @@
         }
 
         var arr= []
-        arr.push();
-        arr.push();
+        arr.push(1);
+        arr.push(4);
         sayHello.apply(obj,arr);  //apply方法在于sayHello中形参不知道有多少，这样通过数据，动态增加，要多少，push多少
 
         function test(a , b ,c){

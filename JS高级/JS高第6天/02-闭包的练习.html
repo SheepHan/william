@@ -24,26 +24,19 @@
         //问题代码
        // for(var i = 0 ; i < 10; i++){
        //     setTimeout(function(){
-       //         console.log(j);
+       //         console.log(i);
        //     },0);
        // }
 
         //解决问题的代码
-        for(var i = 0; i< 3; i++){
+      for(var i=0;i<10;i++){
+        function foo(i){
+            console.log(i);
+        };
 
-            function foo(j){
-//                var j;
-//                j = 实参
-                //j = i
-                return function(){
-                    console.log(j);
-                };
-            }
-            //0
-            var f = foo(i);
-            setTimeout(f, 0);
-        }
-
+        var f=foo(i);
+        setTimeout(f, 0);
+      }
 
 
 

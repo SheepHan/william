@@ -6,18 +6,18 @@
     <script>
 
         //1
-       var age = 38;
-       var obj = {
-           age: 18,
-           getAge: function() {
-               console.log(this.age);
-           }
-       };
+//        var age = 38;
+//        var obj = {
+//            age: 18,
+//            getAge: function() {
+//                console.log(this.age);
+//            }
+//        };
 
-//        var a = obj.getAge();  //18  //这调用对象中的方法，所以this指向对象
+// //        var a = obj.getAge();  //18  //这调用对象中的方法，所以this指向对象
 
-       var getAge = obj.getAge;  //这是把函数复制给了getAge，所以是函数模式，this指向window
-       getAge(); //38   
+//        var getAge = obj.getAge;  //这是把函数复制给了getAge，相当于此时全局中添加了一个getAge函数，所以是函数模式，this指向window
+//        getAge(); //38   
 
 
         //2
@@ -37,11 +37,13 @@
 
        // obj.getAge();
 
-        //3
-//
+
+
+//         //3
+// //
         var length = 10;
         function fn(){
-            console.log(this.length);
+            console.log(this.length);//10
         }
 
         var obj = {

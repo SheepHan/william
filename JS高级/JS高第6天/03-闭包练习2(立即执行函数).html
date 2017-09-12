@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+
+
+
+       
+    // 并不会像你想象那样的执行，因为i的值没有被锁住
+    // 当我们点击链接的时候，其实for循环已经执行完了
+    // 于是在点击的时候i的值其实已经是divs.length了
+        window.onload = function () {
+            var divs = document.getElementsByTagName("div");
+            for (var i = 0; i < divs.length; i++) {
+                var div = divs[i];
+                div.onclick=function(){
+                  alert("我是第"+ (i+1) +"个div");
+                }
+        }
+}
+
+        window.onload = function () {
+            var divs = document.getElementsByTagName("div");
+            for (var i = 0; i < divs.length; i++) {
+                var div = divs[i];
+
+//                function foo(j) {
+//                    return function () {
+//                        alert("我是第"+ (j+1) +"个div");
+//                    }
+//                }
+//
+//                var f = foo(i);
+//
+//                div.onclick = f;
+
+                div.onclick = function (j) {
+                    return function () {
+                        alert("我是第"+ (j+1) +"个div");
+                    }
+                }(i);
+
+            }
+        }
+
+        //立即执行函数表达式(自调用函数)  IIFE  imediately invoked funciton expression
+
+//        ((function() {
+//            console.log("自调用");
+//        }());
+
+//        +function(){
+//                    console.log("自调用");
+//                }();
+    </script>
+</head>
+<body>
+<div>我是第1个div</div>
+<div>我是第2个div</div>
+<div>我是第3个div</div>
+<div>我是第4个div</div>
+<div>我是第5个div</div>
+<div>我是第6个div</div>
+<div>我是第7个div</div>
+<div>我是第8个div</div>
+<div>我是第9个div</div>
+<div>我是第10个div</div>
+</body>
+</html>

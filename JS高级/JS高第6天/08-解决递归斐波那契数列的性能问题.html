@@ -13,27 +13,30 @@
             //2.如果获取到了，直接使用
             //3.如果没有获取到，就去计算，计算完之后，把计算结果存入cache，然后将结果返回
 
-//        var cache = [];
-//
-//        function fib(n){
-//            //1.从cache中获取数据
-//            if(cache[n] !== undefined){
-//                //如果缓存中有 直接返回
-//                return cache[n];
-//            }
-//            //如果缓存中没有 就计算
-//            if(n <= 2){
-//                //把计算结果存入数组
-//                cache[n] = 1;
-//                return 1;
-//            }
-//            var temp = fib(n - 1) + fib(n - 2);
-//            //把计算结果存入数组
-//            cache[n] = temp;
-//            return temp;
-//        }
-//
-//        console.log(fib(6));
+       var cache = [];
+
+       function fib(n){
+           //1、首先从cache中获取数据，如果缓存中有 直接返回
+           if(cache[n] !== undefined){
+               return cache[n];
+           }
+
+           //2、如果缓存中没有 就计算
+                //当n<=2时候
+           if(n <= 2){
+               //把计算结果存入缓存数组
+               cache[n] = 1;
+               return 1;
+           }
+                //当n>2时候
+           var temp = fib(n - 1) + fib(n - 2);
+
+           //把计算结果存入数组
+           cache[n] = temp;
+           return temp;
+       }
+
+       console.log(fib(6));
 
 
 ///////上面的cache在全局，不安全，使用闭包
@@ -41,6 +44,7 @@
         var count =0 ;
         function createFib(){
             var cache = [];
+            
             function fib(n){
                 count ++;
                 //1.从cache中获取数据
@@ -54,7 +58,7 @@
                     cache[n] = 1;
                     return 1;
                 }
-                var temp = fib(n - 1) + fib(n - 2);
+                var temp = fib(n - 1) + fib(n - 2);//注意此处用的是fib
                 //把计算结果存入数组
                 cache[n] = temp;
                 return temp;
@@ -74,7 +78,7 @@
                     cache[key] = value;
                     return cache[key];
                 }
-                //如果没有传值，只穿了键，那就是获取值
+                //如果没有传值，只传了键，那就是获取值
                 else{
                     return cache[key];
                 }
@@ -103,7 +107,7 @@
                 return temp;
             }
 
-            return fib;
+            return fib;  
         }
 
 

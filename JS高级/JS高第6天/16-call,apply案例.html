@@ -20,7 +20,7 @@
     <script>
         //案例：求一个数组中的最大值
         var arr = [9, 1, 4, 10, 7, 22, 8];
-        //Math.max
+        //Math.max()括号中只能传入一个个数字，不能直接写一个数组arr，比较蛋疼。所以才尝试用apply
 //        Math.max(1,2,34,5);//34
 
         //apply方法的第二个参数 是一个数组
@@ -38,7 +38,7 @@
 //            return arguments.join("-");
             //伪数组不具有join方法，所以这个时候就要考虑去借用一下数组的join方法
             
-
+            //构造函数中没有join方法，只有原型中有，或者实例化对象中有
 //            var str = Array.prototype.join.apply(arguments,["-"]);
             var str = [].join.apply(arguments,["-"]);
             return str;
