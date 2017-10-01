@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	function forEach(obj,fn){
+		var key;
+
+		if(obj instanceof Array){  //首先判断是不是数组，是的话对数组采用array.forEach进行遍历
+			obj.forEach(function(item,index){
+				fn(item,index);
+			})
+		}
+		else{   //如果不是数组，即是对象， 采用for in  进行遍历
+			for(key in obj){
+				fn(key,obj[key]);
+			}
+		}
+	}
+
+
+	function fn(a,b){
+		console.log(a);
+		console.log(b);
+		console.log('\n');
+	}
+
+
+	forEach([1,2,4,9],fn);
+	forEach({x:100,y:200},fn)
+</script>

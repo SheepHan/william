@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+/*变量的解构赋值*/
+{
+	var a,b,rest;
+	[a,b]=[1,2];
+	console.log(a,b);//1 2
+}
+
+/*数组的解构赋值*/
+{
+	let a,b,rest;
+	[a,b,...rest]=[1,2,3,4,5,6];
+	console.log(a,b,rest);//1 2  [3, 4, 5, 6]
+}
+
+
+/*对象的解构赋值*/
+{
+	let a,b;
+	({a,b}={a:1,b:2});  //记住加括号
+	console.log(a,b);//1 2
+}
+
+
+/*解构赋值声明未赋值默认就是undefined*/
+{
+	let a,b,c,rest;
+	[a,b,c]=[1,2];
+	console.log(a,b,c);//1 2 undefined
+}
+
+
+
+
+/*解构赋值的应用之一：交换变量*/
+{
+	let a=1;
+	let b=2;
+	[a,b]=[b,a];
+	console.log(a,b); //2 1
+}
+
+/*解构赋值的应用之二*/
+{
+	function f(){
+		return [1,2]
+	}
+	let a,b;
+	[a,b]=f();
+	console.log(a,b);
+}
+
+
+/*解构赋值的应用之三:选择性接收某些变量*/
+{
+	function f(){
+		return [1,2,3,4,5]
+	}
+	let a,b,c;
+	[a,,,b]=f();
+	console.log(a,b);//1  4
+}
+
+/*解构赋值的应用之四:只关心第一个返回的，后面返回的不关心*/
+{
+	function f(){
+		return [1,2,3,4,5]
+	}
+	let a,b,c;
+	[a,...b]=f();
+	console.log(a,b);//1  [2, 3, 4, 5]
+}
+
+
+/*对象的解构赋值*/
+
+{
+	let o={p:42,q:true};
+	let {p,q}=o;
+	console.log(p,q);//42 true
+}
+
+
+{
+	let {a=10,b=5}={a:3};
+	console.log(a,b);//3 5
+}
+
+
+/*对象的解构赋值应用*/
+{
+	let metaData={
+		title:'abc',
+		test:[{
+			title:'test',
+			desc:'description'
+		}]
+	}
+
+	let{title:esTitle,test:[{title:cnTitle}]}=metaData;
+	console.log(esTitle,cnTitle)
+}
+
+
+</script>

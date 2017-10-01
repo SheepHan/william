@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	var arr=[1,4,7,0];
+	arr.forEach(function(item,index){
+		console.log(item);
+		console.log(index);
+		console.log('\n');
+	})
+
+	//
+	//1
+	//0
+	//
+	//4
+	//1
+	//
+	//7
+	//2
+	//
+	//0
+	//3
+	
+	//傻逼了，明明写着是数组API，怎么可能遍历对象呢，而且对象一般只能遍历key，通过obj[key]访问对象的属性值
+	// var obj={
+	// 	X:1,
+	// 	Y:2
+	// }
+	// obj.forEach(function(item,index){
+	// 	console.log(item);
+	// 	console.log(index);
+	// 	console.log('\n');
+	// })
+</script>

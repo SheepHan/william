@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+/*去重*/
+{
+	let arr=[1,2,3,4,5,1,2];
+	let list=new Set(arr);
+
+	console.log('list',list); //{1,2,3,4,5}
+}
+
+/*不会进行隐式类型转换*/
+{
+	let arr=[1,2,"1"];
+	let list=new Set(arr);
+
+	console.log('list',list); //{1,2,"1"}
+}
+
+/*增  删  清  查*/
+{
+	let arr=['add','delete','clear','has'];
+	let list=new Set(arr);
+
+	console.log('has',list.has('add'));//true
+	console.log('delete',list.delete('add'),list);//{"delete", "clear", "has"}
+	list.clear();
+	console.log('list',list);//{}
+}
+</script>

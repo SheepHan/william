@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//Math.random()返回0-1之间的随机数
+	function getRandstr(n){
+		var str="abcdefghijklmnopqrstuvwxyz0123456789";
+		var totalStr="";
+		for(var i=0;i<n;i++){	
+			var rand=Math.floor((Math.random()*str.length));
+			var randstr=str.charAt(rand);
+			totalStr+=randstr;
+		}
+		return totalStr;
+	}
+
+	console.log(getRandstr(5));
+</script>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+
+/*判断字符串是不是包含某些字符*/
+/*str.includes(字符)*/
+{
+	let str='string';
+	console.log(str.includes("r"));//true
+}
+
+
+/*判断字符串是不是以什么字符起始的*/
+/*str.startsWith(字符)*/
+{
+	let str='string';
+	console.log(str.startsWith("ff"));//false
+}
+
+
+/*判断字符串是不是以什么字符结束的*/
+/*str.endsWith(字符)*/
+{
+	let str='string';
+	console.log(str.endsWith("ng"));//true
+}
+
+
+/*将一个字符串重复几次*/
+/*str.repeat(n)*/
+{
+	let str='abc';
+	console.log(str.repeat(3));//abcabcabc
+}
+
+
+
+/*模板字符串*/
+{
+	let name="list";
+	let info="hello world";
+	let m=`I am ${name},${info}`;
+	console.log(m);//I am list,hello world
+}
+
+/*ES7特性，用于日期补白等*/
+{
+	console.log('1',padStart(2,'0'));//01 向前补白
+	console.log('1',padEnd(2,'0'));//10 向后补白
+}
+</script>
