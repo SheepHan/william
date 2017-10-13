@@ -14,7 +14,7 @@
 
 		if(obj instanceof Array){  //首先判断是不是数组，是的话对数组采用array.forEach进行遍历
 			obj.forEach(function(item,index){
-				fn(item,index);
+				fn(index,item);
 			})
 		}
 		else{   //如果不是数组，即是对象， 采用for in  进行遍历

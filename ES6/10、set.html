@@ -11,11 +11,16 @@
 <script>
 
 /*去重*/
+// Array.from将Set转换成数组
 {
 	let arr=[1,2,3,4,5,1,2];
 	let list=new Set(arr);
 
 	console.log('list',list); //{1,2,3,4,5}
+
+	console.log(Array.from(list));//[1, 2, 3, 4, 5]
+
+
 }
 
 /*不会进行隐式类型转换*/
@@ -35,5 +40,47 @@
 	console.log('delete',list.delete('add'),list);//{"delete", "clear", "has"}
 	list.clear();
 	console.log('list',list);//{}
+}
+
+
+{
+	const s=new Set();
+	[2,3,4,5,2,2,2,2,2].forEach(function(x){
+		s.add(x);
+	})
+	for(let i of s){
+		console.log(i);
+	} //2,3 4,5
+}
+
+
+/*Set中  NaN === NaN */
+{
+	let set=new Set();
+	let a=NaN;
+	let b=NaN;
+	set.add(a);
+	set.add(b);
+	console.log(set.size,set); //Set(1) {NaN}
+}
+
+/*Set中两个{}是不等的*/
+
+{
+	let set=new Set();
+	let a={};
+	let b={};
+	set.add(a);
+	set.add(b);
+	console.log(set.size,set); //Set(2) {{…}, {…}}
+}
+
+
+/*WeakSet中只能放引用值类型，不能放数值类型*/
+{
+	let wset=new WeakSet();
+	const a=[];
+	wset.add(a);
+	console.log(wset);
 }
 </script>

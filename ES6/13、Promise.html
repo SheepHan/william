@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+//异步不用Promise去写，非常不友好，很乱。如果异步很多，譬如a→b→c→d等，就非常乱
+{
+	let ajax=function(callback){
+		console.log('执行');
+
+		setTimeout(function(){
+			callback();
+		}, 1000);
+	};
+
+	ajax(function(){
+		console.log('timeout1');
+	})
+}//执行   timeout1
+
+
+// 尝试用Promise去写
+{
+	let ajax=function(){
+		console.log('执行2');
+		return new Promise(function(resolve,reject){
+			setTimeout(function (){
+				resolve()
+			},1000);
+		})
+	};
+
+	ajax().then(function(){
+		console.log('Promise2','timeout2');
+	})
+}
+
+
+
+//多次异步
+{
+	let ajax=function(){
+		console.log('执行3');
+		return new Promise(function(resolve,reject){
+			setTimeout(function (){
+				resolve()
+			},1000);
+		})
+	};
+
+	ajax()
+		.then(function(){
+		return new Promise(function(resolve,reject){
+			setTimeout(function (){
+				resolve()
+			},2000);
+		})
+	})
+		.then(function(){
+			console.log('Promise3','timeout3');
+		})
+}
+
+
+//通过catch捕获错误
+{
+	let ajax=function(num){
+		return new Promise(function(resolve,reject){
+			if(num>=5){
+				resolve()
+			}else{
+				throw  new  Error('出错了');
+			}
+		})
+	}
+
+
+	ajax(3).then(function(){
+		console.log('log',3);
+	}).catch(function(err){
+		console.log('catch',err);
+	})
+}
+</script>

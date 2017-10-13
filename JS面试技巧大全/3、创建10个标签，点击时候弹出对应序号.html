@@ -20,13 +20,15 @@
 </body>
 </html>
 <script>
-	var ulbox=document.getElementsByClassName("ulbox")[0];
+	// var ulbox=document.querySelectorAll(".ulbox")[0];
+	var ulbox=document.querySelector(".ulbox");
 	var lis=ulbox.children;
+
 	for(var i=0;i<lis.length;i++){
 		(function(i){
 			lis[i].onclick=function(){
 				console.log(i+1);
 			}
 		})(i);
-	}
+	}	
 </script>

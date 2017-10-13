@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+/*基本定义和生成实例*/
+{
+	class Parent{
+		constructor(name="mukewang"){//constructor是构造函数
+			this.name=name;
+		}
+	}
+
+	let V_parent=new Parent("v");
+	console.log('构造函数实例',V_parent);//Parent {name: "v"}
+}
+
+
+/*继承*/
+{
+	class Parent{
+		constructor(name="mukewang"){//constructor是构造函数
+			this.name=name;
+		}
+	}
+
+	class Child extends Parent{
+
+	}
+
+	console.log('继承',new Child());//Child {name: "mukewang"}
+}
+
+
+/*继承传递参数*/
+{
+	class Parent{
+		constructor(name="mukewang"){//constructor是构造函数
+			this.name=name;
+		}
+	}
+
+	class Child extends Parent{
+		constructor(name="child"){//constructor是构造函数
+			super(name);
+			this.type="child";//一定要放在super之后
+		}
+	}
+
+	console.log('继承',new Child());//Child {name: "child"}
+}
+
+
+/*getter setter*/
+{
+	class Parent{
+		constructor(name="mukewang"){//constructor是构造函数
+			this.name=name;
+		}
+
+
+		get longName(){
+			return 'mk'+this.name;
+		}
+	
+		set longName(value){
+			this.name=value;
+		}
+
+	}
+
+
+	let v=new Parent();
+	console.log('getter',v.longName);//getter mkmukewang
+
+	v.longName="赋值";
+	console.log('setter',v.longName);//setter mk赋值
+
+}
+
+
+//静态方法，通过类去调用，而不是通过类的实例去调用
+{
+	class Parent{
+		constructor(name="mukewang"){//constructor是构造函数
+			this.name=name;
+		}
+
+		static tell(){
+			console.log("tell");
+		}
+	}
+
+
+	Parent.tell();//tell  静态方法，通过类去调用，而不是通过类的实例去调用
+}
+
+
+
+
+//静态属性：目前没有类似静态方法一样的static去修饰，只能通过类名.属性名去声明，调用时候也是通过类去调用，而不是通过类的实例化对象去调用
+{
+	class Parent{
+		constructor(name="mukewang"){//constructor是构造函数
+			this.name=name;
+		}
+
+		static tell(){
+			console.log("tell");
+		}
+	}
+
+
+	Parent.type="静态属性";
+
+	console.log('静态属性',Parent.type);//静态属性 静态属性
+}
+
+
+
+</script>

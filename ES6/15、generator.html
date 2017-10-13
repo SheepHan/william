@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+//generator基本定义
+{
+	let tell=function *(){
+		yield 'a';
+		yield 'b';
+		return 'c';
+	};
+
+	let k=tell();
+
+	console.log(k.next());//{value: "a", done: false}
+	console.log(k.next());//{value: "b", done: false}
+	console.log(k.next());//{value: "c", done: true}
+	console.log(k.next());//{value: undefined, done: true}
+
+}
+
+
+
+
+{
+	let obj={};
+	obj[Symbol.iterator]=function *(){
+		yield 1;
+		yield 2;
+		yield 3;
+	}
+
+	for(let value of obj){
+		console.log('value',value);
+		//value 1
+		//value 2
+		//value 3
+	}
+}
+</script>
