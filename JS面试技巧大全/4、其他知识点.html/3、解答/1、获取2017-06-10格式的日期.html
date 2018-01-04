@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   function  getCalender(){
+       var date=new Date();
+       var str="-";
+       var year=date.getFullYear();
+       var month=double(date.getMonth()+1);
+       var day=double(date.getDay()+1);
+       
+       function double(para){
+            if(para<10){
+                return "0"+para;
+            }
+       }
+       return  year+str+month+str+day;
+   }
+   console.log(getCalender());
+</script>
