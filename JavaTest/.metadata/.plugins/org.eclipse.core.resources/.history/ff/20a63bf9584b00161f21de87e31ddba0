@@ -1,0 +1,28 @@
+package com.test1;
+
+class Fu{
+  String name;
+
+  
+  public Fu(String name){
+	  this.name=name;
+  }
+	  public void eat(){
+		  System.out.println(name+"³Ô¡£¡£");
+	  }
+  
+}
+
+class Zi extends Fu{
+	String num;
+}
+
+ class Demo1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Zi z=new Zi();
+		
+	}
+}
+
+

@@ -1,0 +1,5 @@
+package ij;
+
+public interface PlugInFilter {
+
+}

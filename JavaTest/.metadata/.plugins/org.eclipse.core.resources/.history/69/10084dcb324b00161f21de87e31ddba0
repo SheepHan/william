@@ -1,0 +1,31 @@
+package com.test1;
+
+class Fu{
+	int x=20;
+	
+public void eat(){
+	System.out.println("大头爸爸");
+}
+}
+
+class Zi extends Fu{
+	int x=10;
+	
+	public void eat(){
+		System.out.println("小头儿子");
+	}
+	
+	public void print(){
+		System.out.println("x="+super.x);
+}
+}
+
+ class Demo1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Zi z=new Zi();
+		z.eat();
+	}
+}
+
+

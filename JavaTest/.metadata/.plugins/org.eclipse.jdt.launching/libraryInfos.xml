@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="D:\Program Files (x86)\java" version="1.8.0_60">
+<bootpath>
+<entry path="D:\Program Files (x86)\java\jre\lib\resources.jar"/>
+<entry path="D:\Program Files (x86)\java\jre\lib\rt.jar"/>
+<entry path="D:\Program Files (x86)\java\jre\lib\sunrsasign.jar"/>
+<entry path="D:\Program Files (x86)\java\jre\lib\jsse.jar"/>
+<entry path="D:\Program Files (x86)\java\jre\lib\jce.jar"/>
+<entry path="D:\Program Files (x86)\java\jre\lib\charsets.jar"/>
+<entry path="D:\Program Files (x86)\java\jre\lib\jfr.jar"/>
+<entry path="D:\Program Files (x86)\java\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Program Files (x86)\java\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Program Files (x86)\java\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="D:\JAVA\JDK\jre" version="1.8.0_60">
+<bootpath>
+<entry path="D:\JAVA\JDK\jre\lib\resources.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\rt.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\sunrsasign.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\jsse.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\jce.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\charsets.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\jfr.jar"/>
+<entry path="D:\JAVA\JDK\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\JAVA\JDK\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\JAVA\JDK\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="D:\JAVA\JDK" version="1.8.0_60">
+<bootpath>
+<entry path="D:\JAVA\JDK\jre\lib\resources.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\rt.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\sunrsasign.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\jsse.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\jce.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\charsets.jar"/>
+<entry path="D:\JAVA\JDK\jre\lib\jfr.jar"/>
+<entry path="D:\JAVA\JDK\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\JAVA\JDK\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\JAVA\JDK\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="D:\Program Files (x86)\Java\second" version="1.8.0_60">
+<bootpath>
+<entry path="D:\Program Files (x86)\Java\second\lib\resources.jar"/>
+<entry path="D:\Program Files (x86)\Java\second\lib\rt.jar"/>
+<entry path="D:\Program Files (x86)\Java\second\lib\sunrsasign.jar"/>
+<entry path="D:\Program Files (x86)\Java\second\lib\jsse.jar"/>
+<entry path="D:\Program Files (x86)\Java\second\lib\jce.jar"/>
+<entry path="D:\Program Files (x86)\Java\second\lib\charsets.jar"/>
+<entry path="D:\Program Files (x86)\Java\second\lib\jfr.jar"/>
+<entry path="D:\Program Files (x86)\Java\second\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Program Files (x86)\Java\second\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Program Files (x86)\Java\second\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

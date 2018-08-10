@@ -1,0 +1,23 @@
+package com.test1;
+
+class Fu{
+	int x=20;
+}
+
+class Zi extends Fu{
+	int x=10;
+	
+	public void print(){
+		System.out.println("x="+x);
+}
+}
+
+ class Demo1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Zi z=new Zi();
+		z.print();
+	}
+}
+
+

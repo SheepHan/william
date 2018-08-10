@@ -1,0 +1,33 @@
+package com.test1;
+
+class Fu{
+	String name;
+	
+	public Fu(String name){
+		this.name=name;
+		System.out.println("父类的有参数构造函数被调用");
+	}
+	public Fu(){
+		System.out.println("调用父类无参数的构造函数");
+	}
+	public void eat(){
+		System.out.println(name+"爸爸吃");
+	}
+}
+
+class Zi extends Fu{
+	String num;
+	public Zi(String name)
+	{
+		
+	}
+}
+
+public class Demo1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Zi zi=new Zi("哈哈");
+	}
+
+}
