@@ -1,0 +1,10 @@
+<script>
+    var a = 2;
+    (function (def) {
+        def(window);
+    })(function def(global) {
+        var a = 3;
+        console.log(a);
+        console.log(global.a);
+    })
+</script>

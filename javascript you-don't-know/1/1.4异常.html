@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<script>
+
+/*在非严格模式下，当引擎执行对b进行LHS查询时候，foo函数作用域内没有b的声明，会向上一级查找，此时也就是window全局作用域，在window全局作用域下会自动创建b的声明，将2的赋值给b*/
+	// function foo(a){
+	// 	b=2;
+	// }
+	// foo();
+	// console.log(b);
+	// console.log(window);
+
+
+/*在严格模式下，当引擎执行对b进行LHS查询时候，foo函数作用域内没有b的声明就不会向上一级进行查找和自动隐式声明。此时会报ReferenceError*/
+	// function foo(a){
+	// 	"use strict";//严格模式
+	// 	b=2;
+	// }
+	// foo();
+	// console.log(b);  // ReferenceError
+	// console.log(window);
+
+
+
+/*ReferenceError代表作用域判别失败相关，是关于作用域下的失败；
+而TypeError则代表作用域判别成功，但是对结果的操作是非法或者不合理的*/
+	function foo(a){
+		b=2;
+	}
+	foo();
+	console.log(b.log());  // TypeError
+	
+
+
+</script>
+<body>
+	
+</body>
+</html>
